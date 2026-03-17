@@ -1,4 +1,4 @@
-# FlashDeck
+# StudyFlip
 
 Plataforma web para criação e estudo de **flashcards**, desenvolvida para auxiliar estudantes na revisão de conteúdos de forma rápida e interativa.
 
