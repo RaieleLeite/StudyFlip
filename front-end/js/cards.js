@@ -119,7 +119,6 @@ function renderCard(card) {
             answer.style.display = "none"
             showBtn.textContent = "Mostrar"
         }
-
     })
 
 

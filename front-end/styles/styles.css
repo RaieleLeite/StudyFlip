@@ -27,6 +27,11 @@ header{
     justify-content: space-between;
 }
 
+nav{
+    display: flex;
+    gap: 50px;
+}
+
 header a{
     Text-decoration: none;
 }
@@ -42,8 +47,9 @@ main{
 
 .section-cards{
     display: flex;
-    gap: 10px;
+    gap: 30px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 
@@ -152,8 +158,14 @@ main{
 
 
 .answer{
+    display: none;
     margin-top: 10px;
 }
+
+.answer-community{
+    margin-top: 10px;
+}
+
 
 .button-card:hover{
     background-color: var(--cor-principal);
