@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Flip</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 
 <header>
     <h1>Study Flip</h1>
+    <nav>
+        <a href="">Comunidade</a>
+    </nav>
 </header>
 
 <main>
@@ -21,11 +25,33 @@
             Criar Flashcard
         </button>
     </section>
+
+    <section class="section-cards">
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Novo Flashcard</h2>
+            <form>
+                <label for="title">Título</label>
+                <input type="text" id="title" placeholder="Digite a pergunta" class="input">
+
+                <label for="category">Categoria</label>
+                <input type="text" id="category" placeholder="Digite a categoria" class="input">
+
+                <label for="answer">Resposta</label>
+                <textarea placeholder="Digite a resposta" id="answer" class="input" rows="5"></textarea>
+
+                <button type="submit" id="button-save">Salvar</button>
+            </form>
+        </div>
+    </div>
 </main>
 
 <footer>
     <p>© 2026 Study Flip</p>
 </footer>
-
+<script src="../js/cards.js"></script>
 </body>
 </html>

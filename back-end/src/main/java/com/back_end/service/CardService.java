@@ -18,11 +18,6 @@ public class CardService {
     }
 
     public Card save(Card card) {
-        cardRepository.findById(card.getId())
-                .ifPresent(r -> {
-                    throw new IllegalArgumentException("Este card já existe");
-                });
-
         return cardRepository.save(card);
     }
 
@@ -50,8 +45,7 @@ public class CardService {
         cardFound.setTitle(card.getTitle());
         cardFound.setAnswer(card.getAnswer());
         cardFound.setCategory(card.getCategory());
-        cardFound.setCorrect_count(card.getCorrect_count());
-        cardFound.setWrong_count(card.getWrong_count());
+
 
         return cardRepository.save(cardFound);
     }

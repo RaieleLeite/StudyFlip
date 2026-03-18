@@ -11,6 +11,7 @@ import com.back_end.entity.Card;
 import com.back_end.service.CardService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/cards")
 public class CardController {
 
@@ -23,15 +24,15 @@ public class CardController {
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Card card){
         try{
-            Card cardFound = cardService.save(card);
-            return new ResponseEntity<>(cardFound, HttpStatus.OK);
+            Card cardSaved = cardService.save(card);
+            return new ResponseEntity<>(cardSaved, HttpStatus.OK);
 
         } catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    @GetMapping("/list")
+    @GetMapping("")
     public ResponseEntity<?> list(){
         try {
         	List <Card> cards =  cardService.findAll();
@@ -54,8 +55,18 @@ public class CardController {
     @DeleteMapping("/{idCard}")
     public ResponseEntity<?> delete(@PathVariable Long idCard){
         try {
-        	Optional <Card> card = cardService.findById(idCard);
-        	return new ResponseEntity<>(card, HttpStatus.OK);
+        	String response = cardService.delete(idCard);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch(Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @PutMapping("/{idCard}")
+    public ResponseEntity<?> update(@PathVariable Long idCard, @RequestBody Card card){
+        try {
+        	Card cardUpdate = cardService.update(card);
+        	return new ResponseEntity<>(cardUpdate, HttpStatus.OK);
         } catch(Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
