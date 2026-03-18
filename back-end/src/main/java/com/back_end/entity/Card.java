@@ -37,17 +37,4 @@ public class Card {
 
 	public String getCategory() {return category;}
 	public void setCategory(String category) {this.category = category;}
-	
-	/*
-	public int getCorrect_count() {return correct_count;}
-	public void setCorrect_count(int correct_count) {this.correct_count = correct_count;}
-
-	public int getWrong_count() {return wrong_count;}
-	public void setWrong_count(int wrong_count) {this.wrong_count = wrong_count;}
-
-	public Date getCreated_at() {return created_at;}
-	public void setCreated_at(Date created_at) {this.created_at = created_at;}*/
-    
-    
-    
 }
