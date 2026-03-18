@@ -21,7 +21,14 @@ body{
 }
 
 header{
-    padding: 0 50px;
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a{
+    Text-decoration: none;
 }
 
 main{
@@ -109,7 +116,7 @@ main{
 }
 
 .card{
-    background-color:white;
+    background-color: white;
     padding: 15px;
     border-radius: 15px;
     width: 400px;
@@ -117,9 +124,21 @@ main{
     border: 1px solid;
 }
 
-.div-button-card{
+.div-title{
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-card {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.div-icon-card{
+    display: flex;
+    gap: 20px;
 }
 
 .button-card{
@@ -128,6 +147,12 @@ main{
     border: none;
     border-radius: 5px;
     padding: 5px;
+    margin-top: 10px;
+}
+
+
+.answer{
+    margin-top: 10px;
 }
 
 .button-card:hover{
@@ -136,4 +161,8 @@ main{
     cursor: pointer;
 }
 
-
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}

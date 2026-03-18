@@ -1,4 +1,3 @@
-// Elementos DOM
 const sectionCards = document.querySelector(".section-cards")
 const button = document.getElementById("create-card")
 const modal = document.getElementById("modal")
@@ -46,6 +45,7 @@ function clearInputs() {
     answerInput.value = ""
     editingCardId = null
     cardDraft = { 
+        id: "",
         title: "", 
         category: "", 
         answer: "" 
@@ -72,10 +72,14 @@ async function loadCards() {
     }
 }
 
-// Renderizar card
+
 function renderCard(card) {
+
     const article = document.createElement("article")
     article.classList.add("card")
+
+    const divTitle = document.createElement("div")
+    divTitle.classList.add("div-title")
 
     const title = document.createElement("h3")
     title.textContent = card.title
@@ -84,23 +88,46 @@ function renderCard(card) {
     category.textContent = card.category
 
     const answer = document.createElement("p")
-    answer.textContent = card.answer
+    answer.textContent = `Resposta: ${card.answer}`
+    answer.classList.add("answer")
+    answer.style.display = "none" 
 
-    const divBtn = document.createElement("div")
-    divBtn.classList.add("div-button-card")
+    const divIcon = document.createElement("div")
+    divIcon.classList.add("div-icon-card")
 
     const deleteBtn = document.createElement("button")
-    deleteBtn.textContent = "Deletar"
-    deleteBtn.classList.add("button-card")
+    deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`
+    deleteBtn.classList.add("icon-card")
     deleteBtn.addEventListener("click", () => deleteCard(card.id))
 
     const editBtn = document.createElement("button")
-    editBtn.textContent = "Editar"
-    editBtn.classList.add("button-card")
+    editBtn.innerHTML = `<i class="fa-solid fa-pen"></i>`
+    editBtn.classList.add("icon-card")
     editBtn.addEventListener("click", () => editCard(card.id))
 
-    divBtn.append(deleteBtn, editBtn)
-    article.append(title, category, answer, divBtn)
+
+    const showBtn = document.createElement("button")
+    showBtn.classList.add("button-card")
+    showBtn.textContent = "Mostrar"
+
+
+    showBtn.addEventListener("click", () => {
+        if (answer.style.display === "none") {
+            answer.style.display = "block"
+            showBtn.textContent = "Ocultar"
+        } else {
+            answer.style.display = "none"
+            showBtn.textContent = "Mostrar"
+        }
+
+    })
+
+
+    divIcon.append(deleteBtn, editBtn)
+    divTitle.append(title, divIcon)
+
+    article.append(divTitle, category, answer, showBtn)
+
     sectionCards.appendChild(article)
 }
 
