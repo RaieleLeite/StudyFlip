@@ -105,7 +105,7 @@ Tabela **flashcards**
 | Campo | Tipo | Descrição |
 |------|------|-----------|
 | id | INTEGER | Identificador do flashcard |
-| question | TEXT | Pergunta |
+| title | TEXT | Pergunta |
 | answer | TEXT | Resposta |
 | category | TEXT | Categoria |
 | correct_count | INTEGER | Número de acertos |
